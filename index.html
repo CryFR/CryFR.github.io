@@ -1,75 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src='time.js'></script>
-  </head>
-     
-  <body onload="realtimeClock()">   
-    <div class="time">
-      <div id="clock"></div>
-    </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чек-лист</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button.completed {
+            background: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ваш Чек-лист</h1>
+    <ul id="task-list">
+        <li><span>Задача 1</span><button onclick="toggleTask(this)">Выполнено</button></li>
+        <li><span>Задача 2</span><button onclick="toggleTask(this)">Выполнено</button></li>
+        <li><span>Задача 3</span><button onclick="toggleTask(this)">Выполнено</button></li>
+    </ul>
 
-      <div class="title">The only source of knowledge is experience</div>
-    
-    <div class="bookmark">
-      <div class="category">
-        <div class="bookmarks">
-          <h>Work</h>
-          <li><a href="https://gmail.com">Gmail</a></li>
-          <li><a href="https://mail.ru/">Mail</a></li>
-          <li><a href="https://zoom.us/join">Zoom</a></li>
-          <li><a href="https://linkedin.com">Linkedin</a></li>
-        </div>
-      </div>
+    <script>
+        function toggleTask(button) {
+            button.classList.toggle('completed');
+            if (button.classList.contains('completed')) {
+                button.textContent = 'Не выполнено';
+            } else {
+                button.textContent = 'Выполнено';
+            }
+        }
 
-      <div class="category">
-        <div class="bookmarks">
-          <h>Dev</h>
-          <li><a href="https://github.com/">GitHub</a></li>
-          <li><a href="https://wanderersguide.app/">Wanderers Guide</a></li>
-          <li><a href="https://roll20.net/welcome">Roll20</a></li>
-          <li><a href="https://discord.com/developers/applications">Devportal</a></li>
-        </div>
-      </div>
-
-      <div class="category">
-        <div class="bookmarks">
-          <h>Social</h>
-          <li><a href="https://reddit.com/">Reddit</a></li>
-          <li><a href="https://instagram.com/">Instagram</a></li>
-          <li><a href="https://twitter.com/">Twitter</a></li>
-          <li><a href="https://discord.com/channels/@me">Discord</a></li>
-        </div>
-      </div>
-
-      <div class="category">
-        <div class="bookmarks">
-          <h>Media</h>
-          <li><a href="https://youtube.com/">YouTube</a></li>
-          <li><a href="https://vk.com/">VK</a></li>
-          <li><a href="https://twitch.tv/">Twitch</a></li>
-          <li><a href="https://as105.online-stars.org/">Anistar</a></li>
-        </div>
-      </div>
-      </div>
-    </div>
-  </body>
-
-  <div class="image">
-    <img id="p2" src="images/pole-right.png" />
-    <img id="c2" src="images/chair-2.png" />
-
-    <img src="images/cat.gif" />
-
-    <img id="p" src="images/pole-left.png" />
-    <img id="c" src="images/chair-1.png" />
-  </div>
-
-  <div class="bar2"></div>
-  <div class="bar1"></div>
-
+        window.Telegram.WebApp.ready();
+    </script>
+</body>
 </html>
